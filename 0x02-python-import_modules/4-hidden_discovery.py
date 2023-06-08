@@ -4,6 +4,5 @@ if __name__ == "__main__":
 
     files = dir(hidden_4)
     for file in files:
-        if file[0:2] == "__":
-            continue
-        print(file)
+        if file[0:2] != "__":
+            print(file)
