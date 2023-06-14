@@ -6,6 +6,9 @@ def roman_to_int(roman_string):
     if type(roman_string) != str or not roman_string:
         return my_sum
     for i in range(len(roman_string)):
+        if romanN.get(roman_string[i], 0) == 0:
+            return 0
+
         if romanN[roman_string[i]] <= timp or timp == 0:
             timp = romanN[roman_string[i]]
             my_sum += timp
