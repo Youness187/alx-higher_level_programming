@@ -11,4 +11,4 @@ def roman_to_int(roman_string):
             my_sum -= num
         else:
             my_sum += num
-    return my_sum
+    return my_sum if my_sum >= 0 else 0
