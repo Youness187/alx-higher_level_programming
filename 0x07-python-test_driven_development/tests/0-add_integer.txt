@@ -1,46 +1,65 @@
-``add_integer`` module
 ===========================
 How to Use 0-add_integer.py
 ===========================
 
->>> add_integer = __import__('0-add_integer').add_integer
+Usage
+=====
+``add_integer(...)``` returns the addition of its two arguments. For numbers,
+that value is equivalent to using the ``+`` operator.
 
->>> add_integer(6, 10)
-16
->>> add_integer(7, 0.6)
-7
->>> add_integer(7, 3.6)
-10
->>> add_integer(2, 3)
-5
->>> add_integer(12, -2)
-10
+::
 
->>> add_integer(, -2)
-Traceback (most recent call last):
-...
-SyntaxError: invalid syntax
->>> add_integer(2)
-100
->>> add_integer()
-Traceback (most recent call last):
-...
-TypeError: add_integer() missing 1 required positional argument: 'a'
+  >>> add_integer = __import__('0-add_integer').add_integer
+  >>> add_integer(6, 10)
+  16
 
->>> add_integer("5", 5)
-Traceback (most recent call last):
-  ...
-TypeError: a must be an integer
->>> add_integer(5, "5")
-Traceback (most recent call last):
-  ...
-TypeError: b must be an integer
->>> add_integer("5", "5")
-Traceback (most recent call last):
-  ...
-TypeError: a must be an integer
+::
 
->>> add_integer(5, 3j)
-Traceback (most recent call last):
+  >>> add_integer(7, 3.6)
+  10
+  >>> add_integer(12, -2)
+  10
+
+::
+
+  >>> add_integer(, -2)
+  Traceback (most recent call last):
   ...
-TypeError: b must be an integer
+  SyntaxError: invalid syntax
+
+::
+
+  >>> add_integer(2)
+  100
+
+::
+
+  >>> add_integer()
+  Traceback (most recent call last):
+  ...
+  TypeError: add_integer() missing 1 required positional argument: 'a'
+
+  >>> add_integer("5", 5)
+  Traceback (most recent call last):
+    ...
+  TypeError: a must be an integer
+  >>> add_integer(5, "5")
+  Traceback (most recent call last):
+    ...
+  TypeError: b must be an integer
+  >>> add_integer("5", "5")
+  Traceback (most recent call last):
+    ...
+  TypeError: a must be an integer
+
+  >>> add_integer(5, 3j)
+  Traceback (most recent call last):
+    ...
+  TypeError: b must be an integer
+
+::
+
+  >>> add_integer(2, float('nan'))
+  Traceback (most recent call last):
+    ...
+  ValueError: cannot convert float NaN to integer
