@@ -122,3 +122,4 @@ For instance, elements can be added to a ``MyList`` with the ``append()`` method
     Traceback (most recent call last):
         ...
     TypeError: '<' not supported between instances of 'str' and 'int'
+
