@@ -1,3 +1,6 @@
-main.py
-*test*.*
+*main.py
 __pycache__
+test.*
+ctypes
+libPython.so
+file
