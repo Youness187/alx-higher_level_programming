@@ -83,6 +83,24 @@ class Rectangle(Base):
                 print("#", end="")
             print()
 
+    def update(self, *args):
+        """update the Rectangle"""
+        if len(args) != 0:
+            for i in range(len(args)):
+                if i == 0:
+                    if args[i] is None:
+                        self.__init__(self.width, self.height, self.x, self.y)
+                    else:
+                        self.id = args[i]
+                elif i == 1:
+                    self.width = args[i]
+                elif i == 2:
+                    self.height = args[i]
+                elif i == 3:
+                    self.x = args[i]
+                elif i == 4:
+                    self.y = args[i]
+
     def __str__(self):
         """Returns the str() repesentation of the Rectangle"""
         string = "[Rectangle] ({}) {}/{} - {}/{}"
