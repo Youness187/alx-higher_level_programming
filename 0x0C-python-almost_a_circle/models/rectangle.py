@@ -117,6 +117,16 @@ class Rectangle(Base):
                 elif key == "y":
                     self.y = val
 
+    def to_dictionary(self):
+        """Returns the dictionary of the Rectangle"""
+        return {
+            "id": self.id,
+            "width": self.width,
+            "height": self.height,
+            "x": self.x,
+            "y": self.y
+        }
+
     def __str__(self):
         """Returns the str() repesentation of the Rectangle"""
         string = "[Rectangle] ({}) {}/{} - {}/{}"
