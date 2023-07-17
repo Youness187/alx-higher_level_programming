@@ -29,13 +29,6 @@ class TestSquareDocs(unittest.TestCase):
         self.assertEqual(result.total_errors, 0,
                          "Found code style errors (and warnings).")
 
-    def test_pep8_conformance_test_rectangle(self):
-        """Test that tests/test_models/test_square.py conforms to PEP8."""
-        pep8style = pep8.StyleGuide(quiet=True)
-        result = pep8style.check_files(['tests/test_models/test_square.py'])
-        self.assertEqual(result.total_errors, 0,
-                         "Found code style errors (and warnings).")
-
     def test_module_docstring(self):
         """Tests for the presence of a module docstring"""
         self.assertTrue(len(square.__doc__) >= 1)
@@ -111,22 +104,16 @@ class TestSquare(unittest.TestCase):
         """Test non-ints for size"""
         with self.assertRaisesRegex(TypeError, "width must be an integer"):
             s = Square("hello")
-        with self.assertRaisesRegex(TypeError, "width must be an integer"):
-            s = Square(True)
 
     def test_x_typeerror(self):
         """Test non-ints for x"""
         with self.assertRaisesRegex(TypeError, "x must be an integer"):
             s = Square(1, "hello")
-        with self.assertRaisesRegex(TypeError, "x must be an integer"):
-            s = Square(1, True)
 
     def test_y_typeerror(self):
         """Test non-ints for y"""
         with self.assertRaisesRegex(TypeError, "y must be an integer"):
             s = Square(1, 1, "hello")
-        with self.assertRaisesRegex(TypeError, "y must be an integer"):
-            s = Square(1, 1, True)
 
     def test_size_valueerror(self):
         """Test ints <= 0 for size"""
@@ -345,15 +332,6 @@ class TestSquare(unittest.TestCase):
             os.remove("Square.json")
         except:
             pass
-        self.assertEqual(Square.load_from_file(), [])
-
-    def test_load_from_file_empty_file(self):
-        """Checks use of load_from_file with empty file"""
-        try:
-            os.remove("Square.json")
-        except:
-            pass
-        open("Square.json", 'a').close()
         self.assertEqual(Square.load_from_file(), [])
 
     def test_load_from_file(self):

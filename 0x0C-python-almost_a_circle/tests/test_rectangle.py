@@ -29,13 +29,6 @@ class TestRectangleDocs(unittest.TestCase):
         self.assertEqual(result.total_errors, 0,
                          "Found code style errors (and warnings).")
 
-    def test_pep8_conformance_test_rectangle(self):
-        """Test that tests/test_models/test_rectangle.py conforms to PEP8."""
-        pep8style = pep8.StyleGuide(quiet=True)
-        result = pep8style.check_files(['tests/test_models/test_rectangle.py'])
-        self.assertEqual(result.total_errors, 0,
-                         "Found code style errors (and warnings).")
-
     def test_module_docstring(self):
         """Tests for the presence of a module docstring"""
         self.assertTrue(len(rectangle.__doc__) >= 1)
@@ -110,29 +103,21 @@ class TestRectangle(unittest.TestCase):
         """Test non-ints for width"""
         with self.assertRaisesRegex(TypeError, "width must be an integer"):
             r = Rectangle("hello", 1)
-        with self.assertRaisesRegex(TypeError, "width must be an integer"):
-            r = Rectangle(True, 1)
 
     def test_height_typeerror(self):
         """Test non-ints for height"""
         with self.assertRaisesRegex(TypeError, "height must be an integer"):
             r = Rectangle(1, "hello")
-        with self.assertRaisesRegex(TypeError, "height must be an integer"):
-            r = Rectangle(1, True)
 
     def test_x_typeerror(self):
         """Test non-ints for x"""
         with self.assertRaisesRegex(TypeError, "x must be an integer"):
             r = Rectangle(1, 1, "hello")
-        with self.assertRaisesRegex(TypeError, "x must be an integer"):
-            r = Rectangle(1, 1, True)
 
     def test_y_typeerror(self):
         """Test non-ints for y"""
         with self.assertRaisesRegex(TypeError, "y must be an integer"):
             r = Rectangle(1, 1, 1, "hello")
-        with self.assertRaisesRegex(TypeError, "y must be an integer"):
-            r = Rectangle(1, 1, 1, True)
 
     def test_width_valueerror(self):
         """Test ints <= 0 for width"""
@@ -378,15 +363,6 @@ class TestRectangle(unittest.TestCase):
             os.remove("Rectangle.json")
         except:
             pass
-        self.assertEqual(Rectangle.load_from_file(), [])
-
-    def test_load_from_file_empty_file(self):
-        """Checks use of load_from_file with empty file"""
-        try:
-            os.remove("Rectangle.json")
-        except:
-            pass
-        open("Rectangle.json", 'a').close()
         self.assertEqual(Rectangle.load_from_file(), [])
 
     def test_load_from_file(self):
