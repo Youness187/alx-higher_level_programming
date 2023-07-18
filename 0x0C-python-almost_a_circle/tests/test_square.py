@@ -353,3 +353,13 @@ class TestSquare(unittest.TestCase):
         self.assertIsNot(s2, s2c)
         self.assertNotEqual(s1, s1c)
         self.assertNotEqual(s2, s2c)
+
+    def test_save_to_file(self):
+        """test regular use of save_to_file"""
+        s1 = Square(1, 1, 1, 1)
+        s2 = Square(2, 2, 2, 2)
+        l = [s1, s2]
+        Square.save_to_file(l)
+        with open("Square.json", "r") as f:
+            ls = [s1.to_dictionary(), s2.to_dictionary()]
+            self.assertEqual(json.dumps(ls), f.read())

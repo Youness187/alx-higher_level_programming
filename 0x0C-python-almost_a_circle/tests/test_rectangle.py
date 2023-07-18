@@ -384,3 +384,13 @@ class TestRectangle(unittest.TestCase):
         self.assertIsNot(r2, r2c)
         self.assertNotEqual(r1, r1c)
         self.assertNotEqual(r2, r2c)
+
+    def test_save_to_file(self):
+        """test regular use of save_to_file"""
+        r1 = Rectangle(1, 1, 1, 1, 1)
+        r2 = Rectangle(2, 2, 2, 2, 2)
+        l = [r1, r2]
+        Rectangle.save_to_file(l)
+        with open("Rectangle.json", "r") as f:
+            ls = [r1.to_dictionary(), r2.to_dictionary()]
+            self.assertEqual(json.dumps(ls), f.read())
