@@ -7,9 +7,9 @@ class Rectangle {
     }
   }
 
-  print () {
+  print (x = 'X') {
     let w = new Array(this.width);
-    w = w.fill('X').join('');
+    w = w.fill(x).join('');
     for (let i = 0; i < this.height; i++) console.log(w);
   }
 
