@@ -6,9 +6,7 @@ class Square extends Rectangle {
   }
 
   charPrint (c = 'X') {
-    let w = new Array(this.width);
-    w = w.fill(c).join('');
-    for (let i = 0; i < this.height; i++) console.log(w);
+    for (let i = 0; i < this.height; i++) console.log(c.repeat(this.width));
   }
 }
 module.exports = Square;
