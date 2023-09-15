@@ -6,6 +6,7 @@ argv = sys.argv
 
 
 def get_all_state():
+    """Lists all states from the database"""
     try:
         db_con = MySQLdb.connect(
             host="localhost",
