@@ -4,6 +4,7 @@ from sys import argv
 
 
 def get_all_state():
+    """lists all states from the database"""
     try:
         db_con = MySQLdb.connect(
             host="localhost",
