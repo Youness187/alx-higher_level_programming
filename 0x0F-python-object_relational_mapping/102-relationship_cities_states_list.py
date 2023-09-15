@@ -1,5 +1,7 @@
 #!/usr/bin/python3
-
+"""
+Start database
+"""
 import sys
 from relationship_state import State
 from relationship_city import Base, City
