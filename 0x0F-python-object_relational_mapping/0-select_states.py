@@ -2,14 +2,9 @@
 import MySQLdb
 import sys
 
-"""
-Connecting and quering data base
-"""
+if __name__ == "__main__":
+    argv = sys.argv
 
-argv = sys.argv
-
-
-def get_all_states():
     try:
         db_con = MySQLdb.connect(
             host="localhost",
@@ -28,6 +23,3 @@ def get_all_states():
         print(row)
     states.close()
     db_con.close()
-
-
-get_all_states()
