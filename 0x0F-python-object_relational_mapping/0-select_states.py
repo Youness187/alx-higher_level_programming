@@ -1,6 +1,9 @@
 #!/usr/bin/python3
 import MySQLdb
 import sys
+"""
+Connecting and quering data base
+"""
 
 argv = sys.argv
 
