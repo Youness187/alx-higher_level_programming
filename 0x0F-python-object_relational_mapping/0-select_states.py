@@ -15,6 +15,7 @@ def get_all_state():
             charset="utf8",
         )
     except Exception:
+        print("can't connect to database")
         return 0
     states = db_con.cursor()
     states.execute("SELECT * FROM states ORDER BY id")
