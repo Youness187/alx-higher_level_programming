@@ -14,6 +14,7 @@ try:
         charset="utf8",
     )
 except Exception:
+    print("can't connect to database")
     sys.exit(0)
 states = db_con.cursor()
 states.execute("SELECT id, name FROM states ORDER BY id")
