@@ -1,12 +1,9 @@
 #!/usr/bin/python3
 import MySQLdb
-import sys
-
-argv = sys.argv
+from sys import argv
 
 
 def get_all_state():
-    """Lists all states from the database"""
     try:
         db_con = MySQLdb.connect(
             host="localhost",
