@@ -18,10 +18,10 @@ except Exception:
     sys.exit(0)
 states = db_con.cursor()
 query = "SELECT c.name FROM cities AS c JOIN states AS s\
-         ON c.state_id=s.id WHERE s.name LIKE %s ORDER BY c.state_id"
-states.execute(query, (argv[4],))
+         ON c.state_id=s.id WHERE s.name = '{name}' ORDER BY c.state_id"
+states.execute(query.format(name=argv[4]))
 rows = states.fetchall()
 for row in rows:
-    print(row[0], end=("" if row == rows[-1] else ", "))
+    print(row[0], end=("\n" if row == rows[-1] else ", "))
 states.close()
 db_con.close()
