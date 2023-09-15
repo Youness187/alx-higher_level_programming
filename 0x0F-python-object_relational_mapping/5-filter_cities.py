@@ -22,6 +22,6 @@ query = "SELECT c.name FROM cities AS c JOIN states AS s\
 states.execute(query.format(name=argv[4]))
 rows = states.fetchall()
 for row in rows:
-    print(row[0], end=("\n" if row == rows[-1] else ", "))
+    print(row[0], end=(", " if row != rows[-1] else "\n"))
 states.close()
 db_con.close()
