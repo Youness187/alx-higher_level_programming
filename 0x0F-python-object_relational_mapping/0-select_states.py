@@ -1,26 +1,29 @@
 #!/usr/bin/python3
 import MySQLdb
-from sys import argv
+import sys
+
+argv = sys.argv
 
 
-def mysqlconnnect():
-    """
-    Connecting and quering data base
-    """
+def get_all_state():
     try:
-        db_connection = MySQLdb.connect(host="localhost", port=3306,
-                                        user=argv[1], passwd=argv[2],
-                                        db=argv[3], charset="utf8")
+        db_con = MySQLdb.connect(
+            host="localhost",
+            port=3306,
+            user=argv[1],
+            passwd=argv[2],
+            db=argv[3],
+            charset="utf8",
+        )
     except Exception:
-        print("can't connect to database")
         return 0
-    cur = db_connection.cursor()
-    cur.execute("SELECT * FROM states ORDER BY id ASC")
-    query_rows = cur.fetchall()
-    for row in query_rows:
+    states = db_con.cursor()
+    states.execute("SELECT * FROM states ORDER BY id")
+    rows = states.fetchall()
+    for row in rows:
         print(row)
-    cur.close()
-    db_connection.close()
+    states.close()
+    db_con.close()
 
 
-mysqlconnnect()
+get_all_state()
