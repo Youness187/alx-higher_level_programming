@@ -9,10 +9,9 @@ if __name__ == "__main__":
     """
     lists all State objects from the database hbtn_0e_6_usa
     """
+    link = "mysql+mysqldb://{}:{}@localhost/{}"
     engine = create_engine(
-        "mysql+mysqldb://{}:{}@localhost/{}".format(
-            sys.argv[1], sys.argv[2], sys.argv[3]
-        ),
+        link.format(sys.argv[1], sys.argv[2], sys.argv[3]),
         pool_pre_ping=True,
     )
     Base.metadata.create_all(engine)
