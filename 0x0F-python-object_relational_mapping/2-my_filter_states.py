@@ -21,6 +21,7 @@ query = "SELECT * FROM states WHERE name = '{}' ORDER BY id".format(argv[4])
 states.execute(query)
 rows = states.fetchall()
 for row in rows:
-    print(row)
+    if row[1] == argv[4]:
+        print(row)
 states.close()
 db_con.close()
