@@ -14,6 +14,7 @@ try:
         charset="utf8",
     )
 except Exception:
+    print("can't connect to database")
     sys.exit(0)
 states = db_con.cursor()
 query = "SELECT * FROM states WHERE name LIKE %s ORDER BY id"

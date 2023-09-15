@@ -14,6 +14,7 @@ try:
         charset="utf8",
     )
 except Exception:
+    print("can't connect to database")
     sys.exit(0)
 states = db_con.cursor()
 query = "SELECT c.id, c.name, s.name FROM cities AS c JOIN states AS s\
