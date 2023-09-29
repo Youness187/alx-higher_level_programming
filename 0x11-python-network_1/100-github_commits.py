@@ -7,13 +7,13 @@ import requests
 import sys
 
 if __name__ == "__main__":
-    repo = sys.argv[1]
-    name = sys.argv[2]
+    repo = sys.argv[2]
+    name = sys.argv[1]
 
     url = "https://api.github.com/repos/{}/{}/commits".format(repo, name)
 
-    res = requests.get(url)
-    for commit in res.json()[:10]:
+    res = requests.get(url, params={"per_page": 10})
+    for commit in res.json():
         sha = commit.get("sha")
         full = commit.get("commit").get("author").get("name")
         print("{}: {}".format(sha, full))
