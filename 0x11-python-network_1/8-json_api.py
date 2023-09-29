@@ -15,10 +15,9 @@ if __name__ == "__main__":
         res = requests.post("http://0.0.0.0:5000/search_user", data={"q": q})
         data = res.json()
 
-        if not data:
-            print("No result")
-        else:
+        if data:
             print("[{}] {}".format(data.get("id"), data.get("name")))
-
+        else:
+            print("No result")
     except ValueError:
         print("Not a valid JSON")
